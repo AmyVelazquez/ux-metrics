@@ -11,6 +11,9 @@
 .header-background {
   background-color: rgb(225, 221, 221);
   padding-top: 2em;
+  background-image: url('/images/square-background.png');
+  background-size: cover;
+  background-position: center;
 }
 
 .header-nav {
@@ -25,11 +28,24 @@
   width: 10em;
 }
 
-/* Link styles */
-.header-nav a {
+/* Link styles for both navbar and hamburger menu */
+.header-nav a,
+.header-links a {
   color: #016267;
   font-weight: bold;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-color: #016267; /* Ensures underline matches the text color */
+  text-decoration-thickness: 2px; /* Sets the thickness of the underline */
+  text-underline-offset: 4px; /* Positions the underline 4px below the text */
+}
+
+/* Hover and active states */
+.header-nav a:hover,
+.header-nav a:active,
+.header-links a:hover,
+.header-links a:active {
+  text-decoration: underline;
+  text-decoration-color: #016267; /* Keeps the same underline color */
 }
 
 /* Default styles for the links */
@@ -78,20 +94,19 @@
     display: flex; /* Show links when menu is open */
   }
 
-    .header-links a {
-        padding: 10px 10px 10px 10px; /* Reduce padding on the right */
-        text-align: left; /* Align text to the left */
-        width: 100%; /* Make the link take up the full width of the container */
-        white-space: nowrap; /* Prevent text wrapping */
-        text-decoration: none; /* Remove default underline */
-        color: #016267; /* Link color */
-    }
+  .header-links a {
+    padding: 10px 10px 10px 10px; /* Reduce padding on the right */
+    text-align: left; /* Align text to the left */
+    width: 100%; /* Make the link take up the full width of the container */
+    white-space: nowrap; /* Prevent text wrapping */
+    text-decoration: underline; /* Remove default underline */
+    color: #016267; /* Link color */
+  }
 
-    .header-links a:hover,
-    .header-links a:active {
-        text-decoration: underline; /* Add underline on hover and active */
-    }
-
+  .header-links a:hover,
+  .header-links a:active {
+    text-decoration: underline; /* Add underline on hover and active */
+  }
 
   .hamburger {
     display: flex; /* Show hamburger icon on mobile */
@@ -122,8 +137,8 @@
 }
 
 .hero-paragraphs p {
-    margin: 0.25em;
-    font-size: 14px
+  margin: 0.25em;
+  font-size: 14px;
 }
 
 /* Styles for the main heading and subtitle */
@@ -135,4 +150,19 @@ h1 {
 .online-course {
   font-size: 1.5em;
   margin-top: 0;
+}
+
+/* Larger screen styles */
+@media (min-width: 768px) {
+  .header-links {
+    display: flex !important; /* Make sure links are visible */
+    position: static;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+  }
+  
+  .hamburger {
+    display: none;
+  }
 }

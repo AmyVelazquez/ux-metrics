@@ -23,34 +23,41 @@ export default function Header() {
     };
 
     return (
-        <section className="header-background" style={{
-            backgroundImage: `url(${process.env.PUBLIC_URL}/images/square-background.png)`
-        }}>
-            <section className="header">
-                <nav className="header-nav">
-                    <img className="header-logo" src="/images/Center_Centre_Logo.png" alt="center centre logo" />
-                    
-                    {/* Hamburger icon */}
-                    <div className="hamburger" onClick={toggleMenu}>
-                        <span className="bar"></span>
-                        <span className="bar"></span>
-                        <span className="bar"></span>
-                    </div>
+      <section
+        className="header-background"
+        style={{
+          backgroundImage: `url(${process.env.PUBLIC_URL}/images/square-background.png)`,
+        }}
+      >
+        <section className="header">
+          <nav className="header-nav">
+            <img
+              className="header-logo"
+              src="/images/Center_Centre_Logo.png"
+              alt="center centre logo"
+            />
 
-                    {/* Links */}
-                    <div className={`header-links ${menuOpen ? 'open' : ''}`}>
-                        <Link to="/topics">Course Topics</Link>
-                        <Link to="/outcomes">Why UX Outcomes?</Link>
-                        <Link to="/october">Course Dates</Link>
-                        <Link to="/teams">Sign Up Your Team</Link>
-                    </div>
-                </nav>
-                <div>
-                    <h1>Outcome-Driven UX Metrics</h1>
-                    <p className="online-course">An Online Course with Jared Spool</p>
-                </div>
-                {location.pathname === '/' && <Hero />}
-            </section>
+            {/* Hamburger icon */}
+            <div className="hamburger" onClick={toggleMenu}>
+              <span className="bar"></span>
+              <span className="bar"></span>
+              <span className="bar"></span>
+            </div>
+
+            {/* Links */}
+            <div className={`header-links ${menuOpen ? "open" : ""}`}>
+              <Link to="/topics">Course Topics</Link>
+              <Link to="/outcomes">Why UX Outcomes?</Link>
+              <Link to="/october">Course Dates</Link>
+              <Link to="/teams">Sign Up Your Team</Link>
+            </div>
+          </nav>
+          <div>
+            <h1>Outcome-Driven UX Metrics</h1>
+            <p className="online-course">An Online Course with Jared Spool</p>
+          </div>
+          {location.pathname === "/" && <Hero />}
         </section>
+      </section>
     );
 }
